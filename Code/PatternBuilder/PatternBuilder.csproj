@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{761AF6D0-9999-47D2-8E6D-DD0103FBB7E0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PatternBuilder</RootNamespace>
+    <AssemblyName>PatternBuilder</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Filter\FilterEngine.cs" />
+    <Compile Include="Filter\FilterKeywordSegment.cs" />
+    <Compile Include="Filter\FilterOperatorSegment.cs" />
+    <Compile Include="Filter\FilterVariableSegment.cs" />
+    <Compile Include="GenericFunctionLibrary.cs" />
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Measure\MeasureFieldSegment.cs" />
+    <Compile Include="Measure\MeasureFunctionKeywordSegment.cs" />
+    <Compile Include="Measure\MeasureKeywordSegment.cs" />
+    <Compile Include="Measure\MeasureNumericConstantSegment.cs" />
+    <Compile Include="Measure\MeasureOperatorSegment.cs" />
+    <Compile Include="Measure\MeasureOrganisationIdSegment.cs" />
+    <Compile Include="Measure\MeasureSqlServerVariableSegment.cs" />
+    <Compile Include="Measure\MeasureEngine.cs" />
+    <Compile Include="Measure\MeasureTextConstantSegment.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ActionSegment.cs" />
+    <Compile Include="Test\TestControlFlowKeyword.cs" />
+    <Compile Include="Test\TestDataTypeKeyword.cs" />
+    <Compile Include="Test\TestEngine.cs" />
+    <Compile Include="Test\TestField.cs" />
+    <Compile Include="Test\TestFunctionKeyword.cs" />
+    <Compile Include="Test\TestNumericConstant.cs" />
+    <Compile Include="Test\TestOperator.cs" />
+    <Compile Include="Test\TestOperatorKeyword.cs" />
+    <Compile Include="Test\TestOtherKeyword.cs" />
+    <Compile Include="Test\TestOrganisationId.cs" />
+    <Compile Include="Test\TestSqlServerVariable.cs" />
+    <Compile Include="Test\TestTextConstant.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PatternAssembler\PatternAssembler.csproj">
+      <Project>{C3A957B0-0D1F-49C9-8B05-3B0CE892A92A}</Project>
+      <Name>PatternAssembler</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
